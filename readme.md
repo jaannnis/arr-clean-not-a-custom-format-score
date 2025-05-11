@@ -1,6 +1,6 @@
 # Arr Custom Format Cleanup
 
-![Docker Build Status](https://github.com/jaannnis/arr-cleanup/actions/workflows/docker-build.yml/badge.svg)
+![Docker Build Status](https://github.com/jaannnis/arr-clean-not-a-custom-format-score/actions/workflows/docker-build.yml/badge.svg)
 
 This Docker container automatically cleans up Sonarr and Radarr downloads that have been rejected due to custom format scoring issues. It checks the download queue periodically and removes downloads that contain the message "Not a Custom Format upgrade".
 
