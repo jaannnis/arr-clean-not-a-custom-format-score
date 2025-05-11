@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  arr-cleanup:
+    image: ghcr.io/jaannnis/arr-cleanup:latest
+    # Or build from local files
+    # build: .
+    container_name: arr-cleanup
+    environment:
+      # Sonarr configuration
+      - SONARR_URL=http://sonarr:8989
+      - SONARR_API_KEY=your_sonarr_api_key
+      - SONARR_ENABLED=true
+      
+      # Radarr configuration
+      - RADARR_URL=http://radarr:7878
+      - RADARR_API_KEY=your_radarr_api_key
+      - RADARR_ENABLED=true
+      
+      # General settings
+      - CHECK_INTERVAL_SECONDS=3600
+      - DEBUG=false
+    volumes:
+      - ./logs:/logs
+    restart: unless-stopped
+    # If Sonarr and Radarr are in the same Docker network
+    #networks:
+      #- arr-network
+
+# If you're running Sonarr/Radarr in Docker, you might need this network
+#networks:
+  #arr-network:
+    #external: true
+
